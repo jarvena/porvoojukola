@@ -1,8 +1,13 @@
-# Getting Started with Create React App
+# Simple Porvoo Jukola map browser
+
+A simple web map application combining old maps to a single interface, for preparing to the biggest annual orienteering relay [Jukola](jukola.com).
+The app is powered by React and Leaflet, old maps georeferenced and tiled with QGis.
+
+[The app in action](https://jarvena.github.io/porvoojukola) on Github Pages.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Development and Available Scripts
 
 In the project directory, you can run:
 
@@ -28,6 +33,14 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run predeploy`
+
+Basically executes the previous command, `npm run build`. Supporting the pipeline of the package [gh-pages](https://www.npmjs.com/package/gh-pages).
+
+### `npm run deploy`
+
+Publish the app to Github Pages. Executes predeploy, commits and pushes build to the remote under branch `gh-pages`. Powered by the package [gh-pages](https://www.npmjs.com/package/gh-pages).
 
 ### `npm run eject`
 
