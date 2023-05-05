@@ -75,6 +75,7 @@ function App() {
           url=".\\tiilet\\Kartta1979_3857\\{z}\\{x}\\{y}.png"
           maxNativeZoom={15}
           minNativeZoom={10}
+          bounds={[[60.3623195464795685, 25.7397526170164745], [60.2833882631587130, 25.8610933793943261]]}
         />
       </LayersControl.Overlay>
       <LayersControl.Overlay checked name="Holken 1991">
@@ -82,6 +83,7 @@ function App() {
           url=".\\tiilet\\Holken1991_3857\\{z}\\{x}\\{y}.png"
           maxNativeZoom={16}
           minNativeZoom={10}
+          bounds={[[60.3771676738971408, 25.7458411632768396], [60.3369948250552284, 25.8319421006571446]]}
         />
       </LayersControl.Overlay>
       <LayersControl.Overlay checked name="Seitlahti-Voolahti 1992">
@@ -89,6 +91,7 @@ function App() {
           url=".\\tiilet\\Seitlahti-Voolahti1992_3857\\{z}\\{x}\\{y}.png"
           maxNativeZoom={16}
           minNativeZoom={10}
+          bounds={[[60.3457681696294443, 25.7403588597135453], [60.2847717244076406, 25.8549246002912945]]}
         />
       </LayersControl.Overlay>
       <LayersControl.Overlay checked name="Seitlahti-Fagersta 2003">
@@ -96,6 +99,7 @@ function App() {
           url=".\\tiilet\\Seitlahti-Fagersta2003_3857\\{z}\\{x}\\{y}.png"
           maxNativeZoom={16}
           minNativeZoom={10}
+          bounds={[[60.3347678328687707, 25.7568050935712449], [60.2927163966103024, 25.8208731498315878,]]}
         />
       </LayersControl.Overlay>
       <LayersControl.Overlay checked name="Pysäköintialueet">
