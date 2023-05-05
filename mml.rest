@@ -1,0 +1,1 @@
+GET https://02ec4999-f9a5-4e20-905e-bdfc5b8da7d4:@avoin-karttakuva.maanmittauslaitos.fi/avoin/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=maastokartta&STYLE=default&FORMAT=image/png&TILEMATRIXSET=WGS84_Pseudo-Mercator&TILEMATRIX=12&TILEROW=1180&TILECOL=2340

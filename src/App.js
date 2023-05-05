@@ -15,6 +15,7 @@ function App() {
     <MapContainer
       center={center}
       zoom={9}
+      zoomSnap={0}
       whenReady={e => {
         const mapRef = e.target
         mapRef.flyToBounds(aoiExtent)
@@ -29,7 +30,7 @@ function App() {
       interactive={false}
     />
     <LayersControl position="topright">
-      <LayersControl.BaseLayer checked name="Mapant"> 
+      <LayersControl.BaseLayer checked name="MapAnt"> 
         <TileLayer
           attribution='&copy; <a href="http://www.mapant.fi/">MapAnt</a>'
           url="http://wmts.mapant.fi/wmts_EPSG3857.php?z={z}&x={x}&y={y}"
@@ -37,10 +38,29 @@ function App() {
       </LayersControl.BaseLayer>
       <LayersControl.BaseLayer name="Google satellite">
         <TileLayer
-          attribution='&copy;2023 CNES / Airbus, Landsat / Copernicus, Maxar Technologies'
+          attribution='&copy; 2023 CNES / Airbus, Landsat / Copernicus, Maxar Technologies'
           url="http://mt0.google.com/vt/lyrs=s&hl=en&x={x}&y={y}&z={z}"
         />
       </LayersControl.BaseLayer>
+      <LayersControl.BaseLayer name="MML Maastokartta">
+        <TileLayer
+          attribution='&copy; <a href="https://www.maanmittauslaitos.fi">Maanmittauslaitos</a> <a href="https://www.maanmittauslaitos.fi">CC BY 4.0</a>'
+          url="https://avoin-karttakuva.maanmittauslaitos.fi/avoin/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=maastokartta&STYLE=default&FORMAT=image/png&TILEMATRIXSET=WGS84_Pseudo-Mercator&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}&username=02ec4999-f9a5-4e20-905e-bdfc5b8da7d4"
+        />
+      </LayersControl.BaseLayer>
+      <LayersControl.BaseLayer name="MML Orto">
+        <TileLayer
+          attribution='&copy; <a href="https://www.maanmittauslaitos.fi">Maanmittauslaitos</a> <a href="https://www.maanmittauslaitos.fi">CC BY 4.0</a>'
+          url="https://avoin-karttakuva.maanmittauslaitos.fi/avoin/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=ortokuva&STYLE=default&FORMAT=image/jpeg&TILEMATRIXSET=WGS84_Pseudo-Mercator&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}&username=02ec4999-f9a5-4e20-905e-bdfc5b8da7d4"
+        />
+      </LayersControl.BaseLayer>
+      <LayersControl.Overlay name="Topographic 1979">
+        <TileLayer
+          url=".\\tiilet\\Kartta1979_3857\\{z}\\{x}\\{y}.png"
+          maxNativeZoom={15}
+          minNativeZoom={10}
+        />
+      </LayersControl.Overlay>
       <LayersControl.Overlay checked name="Holken 1991">
         <TileLayer
           url=".\\tiilet\\Holken1991_3857\\{z}\\{x}\\{y}.png"
