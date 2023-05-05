@@ -6,8 +6,24 @@ import { TileLayer } from 'react-leaflet/TileLayer'
 import { GeoJSON } from 'react-leaflet/GeoJSON'
 
 import forbiddenArea from './data/forbiddenArea.json'
+import parkingArea from './data/parkingArea.json'
 
 const aoiExtent = [[60.356401600304, 25.727405548096],[60.295829885323, 25.844049453735]]
+
+const styleFunction = (object) => { // To parse object drawn with geojson.io
+  const style = {
+    color: object.properties.stroke,
+    strokeWidth: object.properties["stroke-width"],
+    opacity: object.properties["stroke-opacity"],
+    fillColor: object.properties.fill,
+    fillOpacity: object.properties["fill-opacity"],
+  }
+  return style
+}
+
+const parkingPopup = (feature, layer) => {
+  layer.bindPopup(feature.properties.name)
+}
 
 function App() {
   const center = [61.9241, 25.7482]
@@ -80,6 +96,14 @@ function App() {
           url=".\\tiilet\\Seitlahti-Fagersta2003_3857\\{z}\\{x}\\{y}.png"
           maxNativeZoom={16}
           minNativeZoom={10}
+        />
+      </LayersControl.Overlay>
+      <LayersControl.Overlay checked name="Pysäköintialueet">
+        <GeoJSON
+          data={parkingArea}
+          interactive={true}
+          onEachFeature={parkingPopup}
+          style={styleFunction}
         />
       </LayersControl.Overlay>
     </LayersControl>
