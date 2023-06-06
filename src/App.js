@@ -4,10 +4,12 @@ import { MapContainer } from 'react-leaflet/MapContainer'
 import { LayersControl } from 'react-leaflet/LayersControl'
 import { TileLayer } from 'react-leaflet/TileLayer'
 import { GeoJSON } from 'react-leaflet/GeoJSON'
+import { EditControl } from 'react-leaflet-draw';
 
 import forbiddenArea from './data/forbiddenArea.json'
 import parkingArea from './data/parkingArea.json'
 import eventCentre from './data/eventCentre.json'
+import { FeatureGroup } from 'react-leaflet';
 
 const aoiExtent = [[60.356401600304, 25.727405548096],[60.295829885323, 25.844049453735]]
 
@@ -117,6 +119,31 @@ function App() {
           interactive={true}
           style={styleFunction}
         />
+      </LayersControl.Overlay>
+      <LayersControl.Overlay>
+        <FeatureGroup>
+          <EditControl
+            position='bottomleft'
+            edit={{
+              edit: false,
+              remove: false,
+            }}
+            draw={{
+              rectangle: false,
+              polygon: false,
+              circle: false,
+              marker: false,
+              circlemarker: false,
+              
+              polyline: {
+                shapeOptions: {
+                  color: "magenta",
+                  opacity: 1,
+                }
+              }
+            }}
+          />
+        </FeatureGroup>
       </LayersControl.Overlay>
     </LayersControl>
   </MapContainer>
