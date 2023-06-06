@@ -7,6 +7,7 @@ import { GeoJSON } from 'react-leaflet/GeoJSON'
 
 import forbiddenArea from './data/forbiddenArea.json'
 import parkingArea from './data/parkingArea.json'
+import eventCentre from './data/eventCentre.json'
 
 const aoiExtent = [[60.356401600304, 25.727405548096],[60.295829885323, 25.844049453735]]
 
@@ -58,7 +59,7 @@ function App() {
           url="http://mt0.google.com/vt/lyrs=s&hl=en&x={x}&y={y}&z={z}"
         />
       </LayersControl.BaseLayer>
-      <LayersControl.BaseLayer name="MML Maastokartta">
+      {/* <LayersControl.BaseLayer name="MML Maastokartta">
         <TileLayer
           attribution='&copy; <a href="https://www.maanmittauslaitos.fi">Maanmittauslaitos</a> <a href="https://www.maanmittauslaitos.fi">CC BY 4.0</a>'
           url="https://avoin-karttakuva.maanmittauslaitos.fi/avoin/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=maastokartta&STYLE=default&FORMAT=image/png&TILEMATRIXSET=WGS84_Pseudo-Mercator&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}&username=02ec4999-f9a5-4e20-905e-bdfc5b8da7d4"
@@ -69,7 +70,7 @@ function App() {
           attribution='&copy; <a href="https://www.maanmittauslaitos.fi">Maanmittauslaitos</a> <a href="https://www.maanmittauslaitos.fi">CC BY 4.0</a>'
           url="https://avoin-karttakuva.maanmittauslaitos.fi/avoin/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=ortokuva&STYLE=default&FORMAT=image/jpeg&TILEMATRIXSET=WGS84_Pseudo-Mercator&TILEMATRIX={z}&TILEROW={y}&TILECOL={x}&username=02ec4999-f9a5-4e20-905e-bdfc5b8da7d4"
         />
-      </LayersControl.BaseLayer>
+      </LayersControl.BaseLayer> */}
       <LayersControl.Overlay name="Topographic 1979">
         <TileLayer
           url=".\\tiilet\\Kartta1979_3857\\{z}\\{x}\\{y}.png"
@@ -107,6 +108,13 @@ function App() {
           data={parkingArea}
           interactive={true}
           onEachFeature={parkingPopup}
+          style={styleFunction}
+        />
+      </LayersControl.Overlay>
+      <LayersControl.Overlay checked name="Kilpailukeskus">
+        <GeoJSON
+          data={eventCentre}
+          interactive={true}
           style={styleFunction}
         />
       </LayersControl.Overlay>
