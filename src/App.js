@@ -125,32 +125,29 @@ function App() {
             style={styleFunction}
           />
         </LayersControl.Overlay>
-        <LayersControl.Overlay>
-          <FeatureGroup>
-            <EditControl
-              position='bottomleft'
-              edit={{
-                edit: false,
-                remove: false,
-              }}
-              draw={{
-                rectangle: false,
-                polygon: false,
-                circle: false,
-                marker: false,
-                circlemarker: false,
-
-                polyline: {
-                  shapeOptions: {
-                    color: "magenta",
-                    opacity: 1,
-                  }
-                }
-              }}
-            />
-          </FeatureGroup>
-        </LayersControl.Overlay>
       </LayersControl>
+      <FeatureGroup>
+        <EditControl
+          position='bottomleft'
+          edit={{
+            edit: false,
+            remove: true,
+          }}
+          draw={{
+            rectangle: false,
+            polygon: false,
+            circle: false,
+            marker: false,
+            circlemarker: false,
+            polyline: {
+              shapeOptions: {
+                color: "magenta",
+                opacity: 1,
+              }
+            }
+          }}
+        />
+      </FeatureGroup>
     </MapContainer>
   )
 }
