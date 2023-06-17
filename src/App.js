@@ -104,6 +104,13 @@ function App() {
             minNativeZoom={10}
             bounds={[[60.3347678328687707, 25.7568050935712449], [60.2927163966103024, 25.8208731498315878,]]} />
         </LayersControl.Overlay>
+        <LayersControl.Overlay checked name="Venla">
+          <TileLayer
+            url=".\\tiilet\\Venla\\{z}\\{x}\\{y}.png"
+            maxNativeZoom={16}
+            minNativeZoom={10}
+          />
+        </LayersControl.Overlay>
         <LayersControl.Overlay name="Maastonmuodot">
           <TileLayer
             url="https://static.trailmap.fi/varjomap/{z}/{x}/{y}.png"
